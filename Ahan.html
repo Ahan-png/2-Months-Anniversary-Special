@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter for My Beloved</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap');
+
+body{
+  
+  background-color:pink;
+  background-image: url("https://www.ppt-backgrounds.net/uploads/heart-pattern-pretty-clipart-background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+  height:100vh;
+}
+
+.Message{
+  font-family: 'Dancing Script', cursive;
+  color: #b2ac0c;
+  text-shadow: 0 0 5px rgba(255, 182, 193, 0.8), 0 0 10px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 20, 147, 0.3);
+
+}
+
+p{
+    font-style: italic;
+    font-weight: 500; 
+    z-index: 4;  
+}
+
+.letter{
+  background: #fefaf6;
+  border: 5px solid rgb(171, 75, 75);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0, 0.1);
+
+  position: absolute;
+  width: 87%;
+  height: 105%;
+  opacity: 1;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 1;
+  overflow-y: auto;
+
+  transition: transform 0.5s ease-in-out 0.5s
+  
+}
+
+.letter::-webkit-scrollbar{
+  width: 6px;
+}
+
+.letter::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.letter::-webkit-scrollbar-thumb{
+  background-color: rgb(198, 47, 47);
+  border-radius: 10px;
+}
+
+.flap{
+
+position: absolute;
+border-radius: 17px;
+top: -20px;
+left: -20px;
+width: 0;
+height: 0;
+
+border-left: 170px solid rgb(239, 48, 48);
+border-right: 170px solid rgb(239, 48, 48);
+border-top: 80px solid rgb(220, 40, 40);
+
+transform-origin: top;
+  transform: rotateX(0deg);
+  transition: transform 1.5s ease-in-out 0.6s, z-index 0s 1s;
+  z-index: 5;
+
+}
+  
+.envelope{
+
+  border-radius:17px;
+  width:300px;
+  height:160px;
+  background:rgb(251, 249, 249);
+  border: 20px solid rgb(198, 47, 47);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+  animation: 3s ease-in-out infinite;
+  animation-name: float;
+
+  perspective: 1000px;
+
+  position: relative;
+  
+
+}
+
+.envelope::after{
+
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 300px;
+  height: 100px;
+  background: rgb(251, 249, 249);
+  border: 20px solid rgb(198, 47, 47);
+  border-top: none;
+  border-radius: 0 0 17px 17px;
+  z-index: 3;
+}
+
+.envelope.open .flap{
+
+transform:rotateX(180deg);
+z-index: 0;
+transition: transform 0.8s ease-in-out, z-index 0s 0.4s;
+
+}
+
+.envelope.open .letter{
+  
+transform: translateY(-170px);
+transition: transform 0.8s ease-in-out 0.5s;
+
+}
+
+.envelope:hover{
+  box-shadow: 0 0 30px 10px rgba(142, 12, 34, 0.6), 0 0 50px 15px rgba(241, 0, 56, 0.4);
+}
+
+@keyframes float{
+  
+  0%{
+    transform: translateY(0px);
+  }
+  
+  50%{
+    transform:translateY(-20px);
+  }
+  
+  100%{
+    transform:translateY(0px);
+  }
+  
+}
+
+
+@media(min-width: 700px){
+
+p{
+  font-style: 1.1rem;
+  line-height: 1.5;
+}  
+
+.envelope{
+  position: relative;
+  cursor: pointer;
+  border-radius:17px;
+  width:480px;
+  height:300px;
+  background:rgb(251, 249, 249);
+  border: 20px solid rgb(239, 48, 48);
+  animation: 3s ease-in-out infinite;
+  animation-name: float;
+  perspective: 1000px;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.envelope::after{
+
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 480px;
+  height: 171px;
+  background: rgb(251, 249, 249);
+  border: 20px solid rgb(198, 47, 47);
+  border-top: none;
+  border-radius: 0 0 17px 17px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+
+}
+
+.flap{
+
+position: absolute;
+border-radius: 17px;
+top: -20px;
+left: -20px;
+width: 0;
+height: 0;
+
+border-left: 260px solid rgb(239, 48, 48);
+border-right: 260px solid rgb(239, 48, 48);
+border-top: 149px solid rgb(220, 40, 40);
+
+transform-origin: top;
+  transform: rotateX(0deg);
+  transition: transform 1.5s ease-in-out 0.6s, z-index 0s 1s;
+
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="envelope" onclick="openEnvelope(this)">
+  <div class="flap"></div>
+  <div class="letter">
+ 
+  <div class="Message">
+    <p>Dear Audrey
+    </p>
+
+    <p>
+      My Beautiful Lady, I hope you like this thing I have made for you for our 2months anniversary. It took me awhile to make it
+      but every second of it was worth it. I thought it will take me longer past the deadline but I am glad I could finish it in 
+      time.
+
+    <p>
+      I made this for you to let you know how deeply I am in love with you. I know you like paragraphs so I thought of making the 
+      paragraph more special to you. You know, I got this idea from Instagram where I saw someone making physical letter but since
+      I can't send you anything physically yet that's why I made one virtually. Afterall, if he wanted he would.
+    </p>
+
+    <p>
+      and, I promise you I am staying with you baby I am going nowhere I am and will always be staying your man. I know we fight 
+      alot and that causes you to get hurt and overthink but I feel like we will soon find a way around this and you won't be 
+      having any overthinking. The more you stick with me and build trust slowly. And, as long as you don't; I am always here to 
+      reassure this beautiful lady with pretty eyes and heart-melting smile. You can tell me anything you feel like or whenever you
+     are in trouble or want to unwind yourself. You are gonna marry a man who will take care of you and stand by you in any and 
+     every situations. 
+    </p>
+    
+    <p>
+      You have no Idea how much I love you like; if reincarnation is possible then in every life and in every universe I want you
+       to be my baby, and in every universe we will be loving eachother deeply. 
+    </p>
+    
+    <p>
+      You. Are. My. Jaan.
+    </p>
+
+    <p>
+      I Love You.
+    </p>
+
+    <p>
+      Your 67th Boyfriend, Ahan.
+    </p>
+    </div>
+  </div>
+
+<p>Click On the Envelope </p>
+</div>
+
+<script>
+
+function openEnvelope(x){
+
+x.classList.toggle("open");
+
+}
+
+</script>
+</body>
+</html>
